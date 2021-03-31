@@ -34,6 +34,11 @@ steps:
     SourceFolder: 'scripts'
     Contents: '**'
     TargetFolder: '$(build.artifactstagingdirectory)/scripts'
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '.'
+    Contents: '**'
+    TargetFolder: '$(build.artifactstagingdirectory)/app'
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
