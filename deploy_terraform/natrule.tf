@@ -1,3 +1,17 @@
+resource "azurerm_virtual_network_peering" "fe-be" {
+  name                      = "fe-be"
+  resource_group_name       = azurerm_resource_group.fe-rg.name
+  virtual_network_name      = azurerm_virtual_network.fe-rg.name
+  remote_virtual_network_id = azurerm_virtual_network.be-rg.id
+}
+
+resource "azurerm_virtual_network_peering" "be-fe" {
+  name                      = "be-fe"
+  resource_group_name       = azurerm_resource_group.be-rg.name
+  virtual_network_name      = azurerm_virtual_network.be-rg.name
+  remote_virtual_network_id = azurerm_virtual_network.fe-rg.id
+}
+
 resource "azurerm_firewall_nat_rule_collection" "fe-rg" {
   name                = "nat01"
   azure_firewall_name = azurerm_firewall.fe-rg.name

@@ -81,7 +81,7 @@ resource "azurerm_virtual_machine" "be-rg" {
   location              = azurerm_resource_group.be-rg.location
   resource_group_name   = azurerm_resource_group.be-rg.name
   network_interface_ids = [azurerm_network_interface.be-rg.id]
-  vm_size               = "Standard_B1ls"
+  vm_size               = "Standard_B2s"
   storage_image_reference {
     publisher = "Canonical"
     offer     = "UbuntuServer"
