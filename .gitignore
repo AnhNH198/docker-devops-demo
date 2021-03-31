@@ -27,3 +27,27 @@ override.tf.json
 
 # Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
 # example: *tfplan*
+app/app/__pycache__/__init__.cpython-37.pyc
+app/app/__pycache__/settings.cpython-37.pyc
+app/app/__pycache__/urls.cpython-37.pyc
+app/app/__pycache__/wsgi.cpython-37.pyc
+app/core/__pycache__/__init__.cpython-37.pyc
+app/core/__pycache__/admin.cpython-37.pyc
+app/core/__pycache__/models.cpython-37.pyc
+app/core/management/__pycache__/__init__.cpython-37.pyc
+app/core/management/commands/__pycache__/__init__.cpython-37.pyc
+app/core/management/commands/__pycache__/wait_for_db.cpython-37.pyc
+app/core/migrations/__pycache__/__init__.cpython-37.pyc
+app/core/migrations/__pycache__/0001_initial.cpython-37.pyc
+app/core/migrations/__pycache__/0002_tag.cpython-37.pyc
+app/core/migrations/__pycache__/0003_ingredient.cpython-37.pyc
+app/core/migrations/__pycache__/0004_recipe.cpython-37.pyc
+app/core/migrations/__pycache__/0005_recipe_image.cpython-37.pyc
+app/recipe/__pycache__/__init__.cpython-37.pyc
+app/recipe/__pycache__/serializers.cpython-37.pyc
+app/recipe/__pycache__/urls.cpython-37.pyc
+app/recipe/__pycache__/views.cpython-37.pyc
+app/user/__pycache__/__init__.cpython-37.pyc
+app/user/__pycache__/serializers.cpython-37.pyc
+app/user/__pycache__/urls.cpython-37.pyc
+app/user/__pycache__/views.cpython-37.pyc
