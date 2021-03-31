@@ -6,7 +6,7 @@
 #     application subnet
 # fw-356 (firewall)
 # */
- terraform {
+terraform {
   required_version = ">= 0.11" 
  backend "azurerm" {
   storage_account_name = "__terraformstorageaccount__"
@@ -16,7 +16,7 @@
   features{}
 	}
 	}
-  provider "azurerm" {
+provider "azurerm" {
     version = "=2.0.0"
     features {}
 }
@@ -36,14 +36,14 @@ resource "azurerm_subnet" "fe-rg-01" {
   name                 = "AzureFirewallSubnet"
   resource_group_name  = azurerm_resource_group.fe-rg.name
   virtual_network_name = azurerm_virtual_network.fe-rg.name
-  address_prefixes     = ["172.16.0.0/24"]
+  address_prefix     = ["172.16.0.0/24"]
 }
 
 resource "azurerm_subnet" "fe-rg-02" {
   name                 = "ApplicationSubnet"
   resource_group_name  = azurerm_resource_group.fe-rg.name
   virtual_network_name = azurerm_virtual_network.fe-rg.name
-  address_prefixes     = ["172.16.1.0/24"]
+  address_prefix     = ["172.16.1.0/24"]
 }
 
 resource "azurerm_public_ip" "fe-rg" {
