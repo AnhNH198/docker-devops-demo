@@ -6,13 +6,20 @@
 #     application subnet
 # fw-356 (firewall)
 # */
-provider "azurerm" {
-  version = "~>2.19"
-  features {
-
-  }
- }
-
+ terraform {
+  required_version = ">= 0.11" 
+ backend "azurerm" {
+  storage_account_name = "__terraformstorageaccount__"
+    container_name       = "terraform"
+    key                  = "terraform.tfstate"
+	access_key  ="__storagekey__"
+  features{}
+	}
+	}
+  provider "azurerm" {
+    version = "=2.0.0"
+    features {}
+}
 resource "azurerm_resource_group" "fe-rg" {
   name     = "anhnh-fe-rg"
   location = "southeastasia"
