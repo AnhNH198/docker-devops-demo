@@ -24,4 +24,14 @@ steps:
     dockerComposeFile: '**/docker-compose.yml'
     action: 'Run a Docker Compose command'
     dockerComposeCommand: 'run --rm app sh -c "python manage.py wait_for_db && python manage.py test && flake8"'
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'deploy_terraform'
+    Contents: '**'
+    TargetFolder: '$(build.artifactstagingdirectory)/deploy_terraform'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
     
