@@ -7,7 +7,12 @@
 # fw-356 (firewall)
 # */
 terraform {
-  required_version = ">= 0.11" 
+    required_providers {
+      azurerm = {
+          source = "hashicorp/azurerm"
+          version = "=2.20.0"
+      }
+    } 
  backend "azurerm" {
   storage_account_name = "__terraformstorageaccount__"
     container_name       = "terraform"
@@ -17,7 +22,6 @@ terraform {
 	}
 	}
 provider "azurerm" {
-    version = "=2.0.0"
     features {}
 }
 resource "azurerm_resource_group" "fe-rg" {
@@ -36,14 +40,14 @@ resource "azurerm_subnet" "fe-rg-01" {
   name                 = "AzureFirewallSubnet"
   resource_group_name  = azurerm_resource_group.fe-rg.name
   virtual_network_name = azurerm_virtual_network.fe-rg.name
-  address_prefix     = ["172.16.0.0/24"]
+  address_prefixes     = ["172.16.0.0/24"]
 }
 
 resource "azurerm_subnet" "fe-rg-02" {
   name                 = "ApplicationSubnet"
   resource_group_name  = azurerm_resource_group.fe-rg.name
   virtual_network_name = azurerm_virtual_network.fe-rg.name
-  address_prefix     = ["172.16.1.0/24"]
+  address_prefixes     = ["172.16.1.0/24"]
 }
 
 resource "azurerm_public_ip" "fe-rg" {

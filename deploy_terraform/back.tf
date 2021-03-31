@@ -23,7 +23,7 @@ resource "azurerm_subnet" "be-rg" {
   name                 = "web-subnet"
   resource_group_name  = azurerm_resource_group.be-rg.name
   virtual_network_name = azurerm_virtual_network.be-rg.name
-  address_prefix     = ["172.16.2.0/24"]
+  address_prefixes   = ["172.16.2.0/24"]
 }
 
 resource "azurerm_network_interface" "be-rg" {
