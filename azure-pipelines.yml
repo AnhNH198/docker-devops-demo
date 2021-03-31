@@ -29,6 +29,11 @@ steps:
     SourceFolder: 'deploy_terraform'
     Contents: '**'
     TargetFolder: '$(build.artifactstagingdirectory)/deploy_terraform'
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'scripts'
+    Contents: '**'
+    TargetFolder: '$(build.artifactstagingdirectory)/scripts'
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
