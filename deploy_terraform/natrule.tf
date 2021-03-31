@@ -33,7 +33,7 @@ resource "azurerm_firewall_nat_rule_collection" "fe-rg" {
       azurerm_public_ip.fe-rg.ip_address
     ]
     translated_port    = 22
-    translated_address = azurerm_network_interface.jbox-rg.private_ip_address
+    translated_address = azurerm_network_interface.be-rg.private_ip_address
     protocols = [
       "TCP",
     ]
